@@ -178,11 +178,11 @@ def handle_list(key='name', reverse=False):
 
     accounts = config.get_accounts()
 
-    print('%-20s%-30s%-20s%-20s' % ('name', 'host', 'user', 'via'))
-    print('%-20s%-30s%-20s%-20s' % ('-----', '-----', '-----', '-----'))
+    print('%-20s%-30s%-10s%-20s%-20s' % ('name', 'host', 'port', 'user', 'via'))
+    print('%-20s%-30s%-10s%-20s%-20s' % ('-----', '-----', '----', '-----', '-----'))
     accounts.sort(key=lambda a: str.lower(getattr(a, key)), reverse=reverse)
     for a in accounts:
-        print('%-20s%-30s%-20s%-20s' % (a.name, a.host, a.user, a.via))
+        print('%-20s%-30s%-10s%-20s%-20s' % (a.name, a.host, a.port, a.user, a.via))
     return STATUS_SUCCESS
 
 
